@@ -1,0 +1,8 @@
+bin/
+obj/
+node_modules/
+dist/
+*.db
+.DS_Store
+app/uploads/*
+!app/uploads/639000000000000000_demo0000000000000000000000000001.pdf
