@@ -127,10 +127,27 @@ Tudo em `/api`, exceto o login, exige `Authorization: Bearer <token>`.
 - Os arquivos são servidos em `http://localhost:5000/uploads/<arquivo>`.
 - A ação "Revisão dos conteúdos do componente específico" (Engenharia de Computação) já vem com um PDF anexo.
 
+## Publicação para visualização (Vercel + Render)
+
+Opcional, só para o grupo ver o sistema online. O projeto continua feito para rodar localmente.
+
+**Backend no Render** (C# em container Docker, arquivos `Dockerfile` e `render.yaml` na raiz):
+1. No Render: **New → Blueprint** (ou **Web Service**) e escolha este repositório. O `render.yaml` já configura o serviço com Docker e o plano gratuito.
+2. Aguarde o deploy e copie a URL gerada, por exemplo `https://painel-enade-api.onrender.com`. Abra `/health` nela para conferir.
+
+**Frontend na Vercel:**
+1. Na Vercel: **Add New → Project** e escolha este repositório.
+2. Em **Root Directory** informe `app/frontend`. O framework Vite é detectado sozinho.
+3. Em **Environment Variables** crie `VITE_API_URL` com a URL do Render (sem barra no final) e faça o deploy.
+
+**Atenção (plano gratuito do Render):**
+- O serviço "dorme" após 15 minutos sem uso; a primeira abertura leva cerca de 1 minuto. Abra a URL do backend antes de apresentar.
+- O disco é temporário: ao dormir ou reiniciar, o banco volta aos dados iniciais e os anexos enviados são perdidos (o PDF de demonstração permanece). Será preciso entrar de novo com `admin` / `123`.
+
 ## Decisões e limitações
 
 - **Sessão:** o login devolve um token aleatório guardado na tabela `sessao` do banco e no `localStorage` do navegador; vale 8 horas, sobrevive a reinício do backend e o "Sair" revoga o token.
 - **Extras:** os requisitos obrigatórios funcionam só com HTML, Bootstrap e React. O Chart.js, a barra lateral recolhível, o skeleton de carregamento e os modais de confirmação são recursos extras.
 - Um único usuário de demonstração, sem perfis. CORS aberto e arquivos de `/uploads` sem autenticação (uso local e didático).
 - Não há importador de CSV: os dados foram inseridos manualmente no SQL.
-- Projeto feito para rodar **localmente**; não foi preparado para hospedagem em nuvem.
+- Projeto feito para rodar **localmente**; a publicação em nuvem descrita acima serve apenas para visualização.

@@ -29,6 +29,8 @@ InicializarBanco(app.Services.GetRequiredService<Db>(), app.Environment.ContentR
 
 app.UseCors();
 
+app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+
 var uploadsPath = Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, "..", "uploads"));
 Directory.CreateDirectory(uploadsPath);
 app.Services.GetRequiredService<Sessoes>().UploadsPath = uploadsPath;
