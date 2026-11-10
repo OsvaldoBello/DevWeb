@@ -1,5 +1,13 @@
 # Painel ENADE: Gestão por Indicadores (Recorte R07)
 
+## Login para entrar no sistema
+
+| Login | Senha |
+|---|---|
+| `admin` | `123` |
+
+Após iniciar o projeto (veja "Como iniciar"), acesse http://localhost:5173 e entre com esse usuário.
+
 ## O que é o projeto
 
 Aplicação web local para acompanhar os indicadores públicos do **Conceito ENADE** (Inep) das três ofertas do
@@ -55,9 +63,7 @@ npm run dev
 Abra http://localhost:5173.
 
 ### Usuário de demonstração
-| Login | Senha |
-|---|---|
-| `admin` | `123` |
+Login `admin` e senha `123`.
 
 ## Configuração do banco
 
