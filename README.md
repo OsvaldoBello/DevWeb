@@ -8,6 +8,15 @@
 
 Após iniciar o projeto (veja "Como iniciar"), acesse http://localhost:5173 e entre com esse usuário.
 
+## Sistema no ar (para visualização)
+
+| | Link |
+|---|---|
+| Site (Vercel) | https://painel-enade-blond.vercel.app |
+| API (Render) | https://devweb-5kd1.onrender.com |
+
+Entre com `admin` / `123`. A API fica em um serviço gratuito: se a primeira abertura demorar cerca de 1 minuto, é o serviço acordando.
+
 ## O que é o projeto
 
 Aplicação web local para acompanhar os indicadores públicos do **Conceito ENADE** (Inep) das três ofertas do
